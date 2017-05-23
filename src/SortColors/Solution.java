@@ -1,0 +1,35 @@
+package SortColors;
+
+class Solution {
+    /**
+     * @param nums: A list of integer which is 0, 1 or 2
+     * @return: nothing
+     */
+    public void sortColors(int[] nums) {
+        // write your code here
+        if(nums == null || nums.length == 0)
+            return;
+
+        int left = 0;
+        int i = 0;
+        int right = nums.length - 1;
+
+        while(i <= right){
+            if(nums[i] == 0)
+                swap(nums, i++, left++);
+            else if(nums[i] == 1)
+                i++;
+            else
+                swap(nums, i, right--);
+        }
+
+        return;
+    }
+
+    public void swap(int[] nums, int i, int j){
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+        return;
+    }
+}
